@@ -183,15 +183,16 @@ class WelcomePage extends AbstractWelcomePage {
                 className = { `welcome ${contentClassName} ${footerClassName}` }
                 id = 'welcome_page'>
                 <div className = 'header'>
-                    <div className = 'header-image' />
+                    {/*<div className = 'header-image' />*/}
                     <div className = 'header-container'>
+                        {/*
                         <div className = 'header-watermark-container'>
                             <div className = 'welcome-watermark'>
                                 <Watermarks
                                     defaultJitsiLogoURL = { DEFAULT_WELCOME_PAGE_LOGO_URL }
                                     noMargins = { true } />
                             </div>
-                        </div>
+                        </div>*/}
                         <div className = 'welcome-page-settings'>
                             <SettingsButton
                                 defaultTab = { SETTINGS_TABS.CALENDAR }
@@ -340,7 +341,7 @@ class WelcomePage extends AbstractWelcomePage {
         const { fDroidUrl, downloadLink: androidDownloadLink } = android;
 
         return (<footer className = 'welcome-footer'>
-            <div className = 'welcome-footer-centered'>
+            {/*<div className = 'welcome-footer-centered'>
                 <div className = 'welcome-footer-padded'>
                     <div className = 'welcome-footer-row-block welcome-footer--row-1'>
                         <div className = 'welcome-footer-row-1-text'>{t('welcomepage.jitsiOnMobile')}</div>
@@ -367,7 +368,7 @@ class WelcomePage extends AbstractWelcomePage {
                         </a>
                     </div>
                 </div>
-            </div>
+            </div>*/}
         </footer>);
     }
 
@@ -378,6 +379,7 @@ class WelcomePage extends AbstractWelcomePage {
      * @returns {ReactElement|null}
      */
     _renderTabs() {
+        //console.log("WelcomePage.web:_renderTabs()")
         if (isMobileBrowser()) {
             return null;
         }
@@ -401,6 +403,14 @@ class WelcomePage extends AbstractWelcomePage {
                 content: <RecentList />
             });
         }
+
+        /*
+         * Show table  recent list here
+         * Because RecentList is get data from redux store so
+         * we need to push data to react store in order to build recent list with addtional info
+         * i mean num participant, host name (teacher)
+         * to do that check back to store where it update (in BaseApp.js)
+        **/
 
         if (tabs.length === 0) {
             return null;

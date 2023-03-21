@@ -186,6 +186,7 @@ export class AbstractWelcomePage<P: Props> extends Component<P, *> {
      */
     _onJoin() {
         const room = this.state.room || this.state.generatedRoomname;
+        console.log("AbstractWelcomePage:_onJoin:room:", room)
 
         sendAnalytics(
             createWelcomePageEvent('clicked', 'joinButton', {
@@ -272,6 +273,8 @@ export class AbstractWelcomePage<P: Props> extends Component<P, *> {
  * @returns {Props}
  */
 export function _mapStateToProps(state: Object) {
+    console.log("AbstractWelcomePage:_mapStateToProps:state:")
+    console.log(state)
     return {
         _calendarEnabled: isCalendarEnabled(state),
         _deeplinkingCfg: state['features/base/config'].deeplinking || {},

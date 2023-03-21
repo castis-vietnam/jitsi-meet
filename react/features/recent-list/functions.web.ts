@@ -12,11 +12,15 @@ export function toDisplayableList(recentList: Array<{ conference: string; date: 
     return (
         [ ...recentList ].reverse()
             .map(item => {
+                console.log("recent-list function toDisplayableList: item:")
+                console.log(item)
                 return {
                     date: item.date,
                     duration: item.duration,
                     time: [ item.date ],
                     title: safeDecodeURIComponent(parseURIString(item.conference).room),
+                    host: "teacher"+Math.floor(Math.random() * 10),
+                    participants:Math.floor(Math.random() * 20),
                     url: item.conference
                 };
             }));

@@ -40,8 +40,8 @@ if (OS === 'ios') {
     });
 }
 
+//window.JitsiMeetJS.app = globalNS
 const globalNS = getJitsiMeetGlobalNS();
-
 globalNS.entryPoints = {
     APP: App,
     PREJOIN: PrejoinApp,

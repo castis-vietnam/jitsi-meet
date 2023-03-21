@@ -223,6 +223,8 @@ class MeetingsList extends Component<Props> {
             elementAfter,
             time,
             title,
+            host,
+            participants,
             url
         } = meeting;
         const { hideURL = false, onItemDelete, t } = this.props;
@@ -237,7 +239,7 @@ class MeetingsList extends Component<Props> {
                 className = { rootClassName }
                 key = { index }
                 onClick = { onPress }>
-                <Container className = 'right-column'>
+                <Container className = 'left-column'>
                     <Text
                         className = 'title'
                         onClick = { onPress }
@@ -259,6 +261,7 @@ class MeetingsList extends Component<Props> {
                             </Text>) : null
                     }
                 </Container>
+                {/*
                 <Container className = 'left-column'>
                     <Text className = 'title'>
                         { _toDateString(date) }
@@ -266,6 +269,15 @@ class MeetingsList extends Component<Props> {
                     <Text className = 'subtitle'>
                         { _toTimeString(time) }
                     </Text>
+                </Container>
+                */}
+                <Container className='left-column'>
+                    <Text className = 'title'>Teacher</Text>
+                    <Text className = 'subtitle'>{host}</Text>
+                </Container>
+                <Container className='right-column'>
+                    <Text className = 'title'>Students</Text>
+                    <Text className = 'subtitle'>{participants}</Text>
                 </Container>
                 <Container className = 'actions'>
                     { elementAfter || null }

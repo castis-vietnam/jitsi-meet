@@ -70,6 +70,11 @@ class RecentList extends AbstractRecentList<Props> {
     _onItemDelete(entry) {
         this.props.dispatch(deleteRecentListEntry(entry));
     }
+    componentDidMount() {
+        console.log("RecentList:componentDidMount:_rencentList:")
+        console.log(this.props._recentList)
+        super.componentDidMount();
+    }
 
     /**
      * Implements the React Components's render method.

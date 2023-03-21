@@ -87,6 +87,8 @@ export default class BaseApp extends Component<*, State> {
                 this.setState({
                     store: this._createStore()
                 }, resolve);
+                console.log("BaseApp: store:")
+                console.log(this._createStore())
             });
 
             await setStatePromise;
